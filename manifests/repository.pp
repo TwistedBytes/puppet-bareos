@@ -63,6 +63,7 @@ class bareos::repository(
           id     => 'A0CFE15F71F798574AB363DD118283D9A7862CEE',
           source => "${location}/Release.key",
         },
+        pin => 991,
       }
       Apt::Source['bareos'] -> Package<|tag == 'bareos'|>
       Class['Apt::Update']  -> Package<|tag == 'bareos'|>
