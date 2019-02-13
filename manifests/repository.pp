@@ -59,10 +59,10 @@ class bareos::repository(
         location => $location,
         release  => '/',
         repos    => '',
-        #key      => {
-        #  id     => '0143857D9CE8C2D182FE2631F93C028C093BFBA2',
-        #  source => "${location}/Release.key",
-        #},
+        key      => {
+          id     => '118283D9A7862CEE',
+          source => "${location}/Release.key",
+        },
       }
       Apt::Source['bareos'] -> Package<|tag == 'bareos'|>
       Class['Apt::Update']  -> Package<|tag == 'bareos'|>
