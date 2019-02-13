@@ -60,7 +60,7 @@ class bareos::repository(
         release  => '/',
         repos    => '',
         key      => {
-          id     => '118283D9A7862CEE',
+          id     => 'A0CFE15F71F798574AB363DD118283D9A7862CEE',
           source => "${location}/Release.key",
         },
       }
