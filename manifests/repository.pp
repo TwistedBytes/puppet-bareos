@@ -54,8 +54,16 @@ class bareos::repository(
       } else {
         if $osmajrelease in ['7'] {
           $location = "http://download.bareos.org/bareos/release/17.2/Debian_7.0"
+          $key = {
+            id     => '0143857D9CE8C2D182FE2631F93C028C093BFBA2',
+            source => "${location}/Release.key",
+          }
         } else {
           $location = "${url}Debian_${osmajrelease}.0"
+          $key = {
+            id     => 'A0CFE15F71F798574AB363DD118283D9A7862CEE',
+            source => "${location}/Release.key",
+          }
         }
       }
       include ::apt
@@ -63,10 +71,7 @@ class bareos::repository(
         location => $location,
         release  => '/',
         repos    => '',
-        key      => {
-          id     => 'A0CFE15F71F798574AB363DD118283D9A7862CEE',
-          source => "${location}/Release.key",
-        },
+        key      => $key,
         pin => 991,
       }
       Apt::Source['bareos'] -> Package<|tag == 'bareos'|>
