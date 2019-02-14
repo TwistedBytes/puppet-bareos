@@ -52,7 +52,11 @@ class bareos::repository(
         }
         $location = "${url}xUbuntu_${osrelease}"
       } else {
-        $location = "${url}Debian_${osmajrelease}.0"
+        if $osmajrelease in ['7'] {
+          $location = "${url}Debian_8.0"
+        } else {
+          $location = "${url}Debian_${osmajrelease}.0"
+        }
       }
       include ::apt
       ::apt::source { 'bareos':
