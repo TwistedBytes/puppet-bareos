@@ -53,7 +53,7 @@ class bareos::repository(
         $location = "${url}xUbuntu_${osrelease}"
       } else {
         if $osmajrelease in ['7'] {
-          $location = "${url}Debian_8.0"
+          $location = "http://download.bareos.org/bareos/release/17.2/Debian_7.0"
         } else {
           $location = "${url}Debian_${osmajrelease}.0"
         }
